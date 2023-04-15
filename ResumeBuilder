@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class ResumeBuilder {
+    private String name;
+    private String email;
+    private String phone;
+    private String address;
+    private String education;
+    private String experience;
+    private String skills;
+    private String awards;
+
+    public ResumeBuilder(String name, String email, String phone, String address) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public void addEducation(String education) {
+        this.education = education;
+    }
+
+    public void addExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public void addSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public void addAwards(String awards) {
+        this.awards = awards;
+    }
+
+    public String buildResume() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Name: ").append(name).append("\n");
+        builder.append("Email: ").append(email).append("\n");
+        builder.append("Phone: ").append(phone).append("\n");
+        builder.append("Address: ").append(address).append("\n\n");
+        builder.append("Education: ").append("\n");
+        builder.append(education).append("\n\n");
+        builder.append("Experience: ").append("\n");
+        builder.append(experience).append("\n\n");
+        builder.append("Skills: ").append("\n");
+        builder.append(skills).append("\n\n");
+        builder.append("Awards: ").append("\n");
+        builder.append(awards).append("\n\n");
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Enter your phone: ");
+        String phone = scanner.nextLine();
+
+        System.out.print("Enter your address: ");
+        String address = scanner.nextLine();
+
+        ResumeBuilder builder = new ResumeBuilder(name, email, phone, address);
+
+        System.out.print("Enter your education: ");
+        String education = scanner.nextLine();
+        builder.addEducation(education);
+
+        System.out.print("Enter your experience: ");
+        String experience = scanner.nextLine();
+        builder.addExperience(experience);
+
+        System.out.print("Enter your skills: ");
+        String skills = scanner.nextLine();
+        builder.addSkills(skills);
+
+        System.out.print("Enter your awards: ");
+        String awards = scanner.nextLine();
+        builder.addAwards(awards);
+
+        System.out.println(builder.buildResume());
+    }
+}
